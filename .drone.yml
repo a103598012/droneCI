@@ -1,13 +1,16 @@
+---
 kind: pipeline
-name: default
+name: linux-amd64
 
 platform:
-    os: linux
-    arch: x86
+  os: linux
+  arch: amd64
 
 steps:
-- name: backend
-  image: golang
+- name: test
+  image: golang:1.11
   commands:
-  - go build
-  - go test
+  - go test -v ./...
+  volumes:
+  - name: gopath
+    path: /go
