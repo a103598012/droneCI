@@ -3,6 +3,9 @@ pipeline:
     image: golang
     commands:
       - echo "backend testing"
+      - go test
+      - echo "build backend"
+      - go build
 
   frontend:
     image: golang
