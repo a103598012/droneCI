@@ -1,16 +1,17 @@
----
-kind: pipeline
-name: linux-amd64
+pipeline:
+  backend:
+    image: golang
+    commands:
+      - echo "backend testing"
 
-platform:
-  os: linux
-  arch: arm
+  frontend:
+    image: golang
+    commands:
+      - echo "frontend testing"
 
-steps:
-- name: test
-  image: golang:1.11
-  commands:
-  - go test -v ./...
-  volumes:
-  - name: gopath
-    path: /go
+  deploy:
+    image: golang
+    commands:
+      - echo "deploy"
+    when:
+      local: false
