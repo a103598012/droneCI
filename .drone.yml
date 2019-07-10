@@ -7,11 +7,6 @@ pipeline:
       - echo "build backend"
       - go build
 
-  frontend:
-    image: selenium
-    commands:
-      - echo "frontend testing"
-
   deploy:
     image: golang
     commands:
