@@ -8,7 +8,7 @@ pipeline:
       - go build
 
   frontend:
-    image: golang
+    image: selenium
     commands:
       - echo "frontend testing"
 
